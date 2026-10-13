@@ -37,7 +37,7 @@ section{position:relative;padding:84px 0 30px}
 @keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.7}}
 main{position:relative;z-index:1}
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0;overflow:hidden}
-.hero-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;transform:scale(1.05)}
+.hero-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;transform:scale(1.05)}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,color-mix(in srgb,var(--hero-tint) 35%,transparent),transparent 40%,var(--hero-fade) 88%,var(--bg-from))}
 .hero-inner{position:relative;text-align:center;padding:120px 18px 90px}
 .hero-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(8px);padding:8px 18px;border-radius:999px;font-weight:700;font-size:.92rem}
@@ -165,24 +165,9 @@ footer{text-align:center;padding:44px 18px 130px;color:var(--muted);font-size:.9
       <span class="hero-badge">✦ Hope your year is amazing ✦</span>
       <h1>Happy Birthday<br><span class="name" data-name>Emily</span></h1>
       <p class="tag">A sky full of stars, a heart full of wishes — this little corner of the internet was made just for you.</p>
-      <div class="hero-cta">
-        <button class="btn" onclick="document.getElementById('letter').scrollIntoView({behavior:'smooth'})">💌 Read your letter</button>
-        <button class="btn ghost" onclick="burstConfetti();document.getElementById('cake').scrollIntoView({behavior:'smooth'})">🎂 Make a wish</button>
-      </div>
       <div class="scroll-cue"></div>
     </div>
   </header>
-
-  <!-- COUNTDOWN -->
-  <section class="reveal"><div class="wrap">
-    <div class="sec-head"><h2>Counting Down to You</h2><p>Every second brings your day closer</p></div>
-    <div class="count-grid">
-      <div class="card count-cell"><b id="cd-d">–</b><span>Days</span></div>
-      <div class="card count-cell"><b id="cd-h">–</b><span>Hours</span></div>
-      <div class="card count-cell"><b id="cd-m">–</b><span>Minutes</span></div>
-      <div class="card count-cell"><b id="cd-s">–</b><span>Seconds</span></div>
-    </div>
-  </div></section>
 
   <!-- LETTER BOOK -->
   <section id="letter" class="reveal"><div class="wrap">
@@ -213,23 +198,6 @@ footer{text-align:center;padding:44px 18px 130px;color:var(--muted);font-size:.9
   <section class="reveal"><div class="wrap">
     <div class="sec-head"><h2>Memories We Cherish</h2><p>Hover or tap to reveal a love note</p></div>
     <div class="mem-grid" id="memGrid"></div>
-  </div></section>
-
-  <!-- CAKE -->
-  <section id="cake" class="reveal"><div class="wrap">
-    <div class="sec-head"><h2>Blow Out the Candles</h2><p>Close your eyes, make a wish, then tap each flame</p></div>
-    <div class="card cake-stage">
-      <div class="cake">
-        <div class="candles" id="candles"></div>
-        <div class="tier tier3"></div><div class="tier tier2"></div><div class="tier tier1"></div>
-        <div class="plate"></div>
-      </div>
-      <p id="cakeMsg" style="color:var(--muted)">5 little flames, 1 big wish waiting…</p>
-      <div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-        <button class="btn ghost" id="relight">🕯️ Relight candles</button>
-        <button class="btn" onclick="playTune()">🎵 Play the birthday tune</button>
-      </div>
-    </div>
   </div></section>
 
   <!-- PLAY ZONE -->
@@ -301,44 +269,20 @@ footer{text-align:center;padding:44px 18px 130px;color:var(--muted);font-size:.9
     </div>
   </div></section>
 
-  <!-- SONG -->
-  <section class="reveal"><div class="wrap">
-    <div class="sec-head"><h2>A Song For You</h2><p>Press play and let the birthday tune roll</p></div>
-    <div class="card" style="max-width:640px;margin:0 auto;padding:30px;text-align:center">
-      <div style="font-size:2.6rem">🎶</div>
-      <p style="margin:10px 0 18px;color:var(--muted)">The classic birthday melody, played note by note — no ads, no interruptions.</p>
-      <button class="btn" onclick="playTune()">▶ Play “Happy Birthday”</button>
-    </div>
-  </div></section>
-
   <!-- COMFORT LETTERS -->
   <section class="reveal"><div class="wrap">
     <div class="sec-head"><h2>Letters for You</h2><p>Open when you need these words</p></div>
     <div class="letter-grid" id="letterGrid"></div>
   </div></section>
 
-  <!-- SECRET + FUTURE -->
-  <section class="reveal"><div class="wrap" style="display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
-    <div class="card" style="padding:30px;text-align:center">
-      <div style="font-size:2rem">🔐</div><h3 class="display" style="color:var(--primary);font-weight:400;margin:8px 0">Secret Message</h3>
-      <p style="color:var(--muted)" id="secretText">There is a message hidden here, just for your eyes.</p>
-      <button class="btn" id="secretBtn" style="margin-top:16px">Reveal it</button>
-    </div>
-    <div class="card" style="padding:30px;text-align:center">
-      <div style="font-size:2rem">📬</div><h3 class="display" style="color:var(--primary);font-weight:400;margin:8px 0">A Letter From the Future</h3>
-      <p style="color:var(--muted)" id="futureText">Sealed today. It unlocks on your next birthday — peek back then. 🔒</p>
-      <button class="btn ghost" id="futureBtn" style="margin-top:16px">Try to open</button>
-    </div>
-  </div></section>
-
   <!-- FINALE -->
   <section class="reveal"><div class="wrap"><div class="finale">
     <h2>Here's to another year of making memories.</h2>
     <p>If this page made you smile even once, it did exactly what it was made to do. Happy Birthday!</p>
-    <div style="margin-top:22px"><button class="btn" onclick="burstConfetti(true)">🎉 Celebrate</button></div>
+    
   </div></div></section>
 
-  <footer>Made with love, for <span data-name>Emily</span> — from <span data-from>John</span> 💛<br><span style="opacity:.7">Demo · try a theme below</span></footer>
+  <footer>Made with love, for <span data-name>Emily</span> — from <span data-from>John</span> 💛<br><span style="display:inline-block;margin-top:14px;opacity:.75">Demo · try a theme using the bar below</span><br><button class="btn" style="margin-top:14px" onclick="window.scrollTo({top:0,behavior:'smooth'})">🎁 Create yours in <span id="createThemeName">Midnight Rose</span></button></footer>
 </main>
 </div>
 
@@ -352,7 +296,7 @@ footer{text-align:center;padding:44px 18px 130px;color:var(--muted);font-size:.9
 </div></div>
 <script>
 /* ============ CONFIG — edit these to personalise ============ */
-const CONFIG = { name:"Emily", from:"John", birthdayMonth:10, birthdayDay:13 }; // month is 1-12; countdown targets the next occurrence
+const CONFIG = { name:"Emily", from:"John", };
 const qs = new URLSearchParams(location.search);
 if(qs.get('name')) CONFIG.name = qs.get('name');
 if(qs.get('from')) CONFIG.from = qs.get('from');
@@ -373,11 +317,6 @@ function sizeCanvas(){cvs.width=innerWidth;cvs.height=innerHeight}addEventListen
 function burstConfetti(big){const colors=['#F8C8DC','#E2B77A','#B87ACC','#ffffff','#FF8FAB'];const n=big?180:90;for(let i=0;i<n;i++){parts.push({x:innerWidth/2+(Math.random()-.5)*260,y:innerHeight*0.35,vx:(Math.random()-.5)*11,vy:-(Math.random()*11+5),s:Math.random()*8+4,c:colors[i%colors.length],r:Math.random()*Math.PI,vr:(Math.random()-.5)*.3,life:110+Math.random()*50})}if(!raf)tickConfetti()}
 function tickConfetti(){ctx.clearRect(0,0,cvs.width,cvs.height);parts=parts.filter(p=>p.life>0);for(const p of parts){p.x+=p.vx;p.y+=p.vy;p.vy+=.22;p.vx*=.99;p.r+=p.vr;p.life--;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.globalAlpha=Math.min(1,p.life/40);ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.62);ctx.restore()}raf=parts.length?requestAnimationFrame(tickConfetti):(ctx.clearRect(0,0,cvs.width,cvs.height),null)}
 setTimeout(()=>burstConfetti(),700);
-
-/* ============ COUNTDOWN ============ */
-function nextBirthday(){const now=new Date();let t=new Date(now.getFullYear(),CONFIG.birthdayMonth-1,CONFIG.birthdayDay);if(t<now)t=new Date(now.getFullYear()+1,CONFIG.birthdayMonth-1,CONFIG.birthdayDay);return t}
-function tickCd(){const diff=nextBirthday()-new Date();const d=Math.floor(diff/864e5),h=Math.floor(diff/36e5)%24,m=Math.floor(diff/6e4)%60,s=Math.floor(diff/1e3)%60;const set=(id,v)=>document.getElementById(id).textContent=String(v).padStart(2,'0');set('cd-d',d);set('cd-h',h);set('cd-m',m);set('cd-s',s)}
-tickCd();setInterval(tickCd,1000);
 
 /* ============ LETTER BOOK (original text) ============ */
 const PAGES=[
@@ -407,18 +346,9 @@ const MEMS=[
 ["https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80","Sparklers at Dusk","Proof that the best evenings are never really planned."],
 ["https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=800&q=80","Roses, Always","Classic, beautiful, impossible to ignore — a bit like you."],
 ["https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=800&q=80","Up, Up & Away","Here is to every plan that is still floating towards you."],
-["https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=800&q=80","Cake O'Clock","The official portrait of every birthday ever. Worth it."]];
+["https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80","Cake O'Clock","The official portrait of every birthday ever. Worth it."]];
 const memGrid=document.getElementById('memGrid');
 MEMS.forEach(([src,t,n],i)=>{const d=document.createElement('div');d.className='mem';d.innerHTML=`<img loading="lazy" alt="Memory ${i+1}" src="${src}"><div class="note"><b>${t}</b><span>${n}</span></div>`;d.onclick=()=>d.classList.toggle('flip');memGrid.appendChild(d)});
-
-/* ============ CAKE ============ */
-const candlesEl=document.getElementById('candles');let lit=5;
-function buildCandles(){candlesEl.innerHTML='';lit=5;for(let i=0;i<5;i++){const c=document.createElement('div');c.className='candle';const f=document.createElement('div');f.className='flame';f.title='Tap to blow out';f.onclick=()=>{if(!c.classList.contains('out')){c.classList.add('out');lit--;updateCake()}};c.appendChild(f);candlesEl.appendChild(c)}updateCake(true)}
-function updateCake(first){const m=document.getElementById('cakeMsg');if(lit===0){m.textContent='🎉 All out! Your wish is on its way to the stars.';burstConfetti(true)}else m.textContent=first?'5 little flames, 1 big wish waiting…':`${lit} flame${lit>1?'s':''} still glowing — keep going!`}
-document.getElementById('relight').onclick=buildCandles;buildCandles();
-
-/* ============ BIRTHDAY TUNE (synth) ============ */
-let actx=null;function playTune(){try{actx=actx||new(window.AudioContext||window.webkitAudioContext)();const N={G4:392,A4:440,B4:494,C5:523,D5:587,E5:659,F5:698,G5:784};const seq=[['G4',.75],['G4',.25],['A4',1],['G4',1],['C5',1],['B4',1.75],['G4',.75],['G4',.25],['A4',1],['G4',1],['D5',1],['C5',1.75],['G4',.75],['G4',.25],['G5',1],['E5',1],['C5',1],['B4',1],['A4',1.75],['F5',.75],['F5',.25],['E5',1],['C5',1],['D5',1],['C5',2]];let t=actx.currentTime+.05;const beat=.42;for(const [n,d] of seq){const o=actx.createOscillator(),g=actx.createGain();o.type='triangle';o.frequency.value=N[n];g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.22,t+.04);g.gain.exponentialRampToValueAtTime(.001,t+d*beat);o.connect(g).connect(actx.destination);o.start(t);o.stop(t+d*beat+.05);t+=d*beat}}catch(e){}}
 
 /* ============ PLAY ZONE TABS ============ */
 document.querySelectorAll('#gameTabs .tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('#gameTabs .tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');['pop','catch','match','spin','scratch'].forEach(g=>document.getElementById('game-'+g).hidden=g!==t.dataset.game);if(t.dataset.game==='scratch')initScratch()});
@@ -478,14 +408,10 @@ function openModal(t,body){document.getElementById('modalTitle').textContent=t;d
 function closeModal(){document.getElementById('modalBg').classList.remove('show')}
 document.getElementById('modalBg').addEventListener('click',e=>{if(e.target.id==='modalBg')closeModal()});
 
-/* ============ SECRET + FUTURE ============ */
-document.getElementById('secretBtn').onclick=function(){document.getElementById('secretText').textContent=`🤫 Between us: planning this page was the highlight of my week. You are very, very easy to celebrate, ${CONFIG.name}.`;this.style.display='none';burstConfetti()};
-document.getElementById('futureBtn').onclick=function(){document.getElementById('futureText').textContent='🔒 Still sealed! This one is patient — check back on the next birthday for a message from today.';this.disabled=true};
-
 /* ============ THEMES ============ */
 const THEMES=[["midnight-rose","Midnight Rose","linear-gradient(135deg,#F8C8DC 0 50%,#E2B77A 50% 100%)"],["golden-hour","Golden Hour","linear-gradient(135deg,#FFE3A3 0 50%,#E2703A 50% 100%)"],["ocean-dream","Ocean Dream","linear-gradient(135deg,#A5E8F5 0 50%,#5EEAD4 50% 100%)"],["lavender-galaxy","Lavender Galaxy","linear-gradient(135deg,#DDD6FE 0 50%,#F0ABFC 50% 100%)"],["candy-pop","Candy Pop","linear-gradient(135deg,#FF8FAB 0 50%,#FFC53D 50% 100%)"],["classic","Classic Black & Gold","linear-gradient(135deg,#111 0 50%,#D4AF37 50% 100%)"]];
 const bar=document.getElementById('themeBar'),app=document.getElementById('app');
-function setTheme(key,save=true){app.dataset.bdayTheme=key;document.body.dataset.bdayTheme=key;[...bar.children].forEach(c=>c.classList.toggle('on',c.dataset.t===key));if(save)localStorage.setItem('bday-theme',key);const u=new URL(location);u.searchParams.set('theme',key);history.replaceState(null,'',u)}
+function setTheme(key,save=true){app.dataset.bdayTheme=key;const cn=document.getElementById('createThemeName');if(cn)cn.textContent=(THEMES.find(t=>t[0]===key)||[])[1]||key;document.body.dataset.bdayTheme=key;[...bar.children].forEach(c=>c.classList.toggle('on',c.dataset.t===key));if(save)localStorage.setItem('bday-theme',key);const u=new URL(location);u.searchParams.set('theme',key);history.replaceState(null,'',u)}
 THEMES.forEach(([key,label,sw])=>{const b=document.createElement('button');b.className='theme-chip';b.dataset.t=key;b.setAttribute('role','radio');b.innerHTML=`<span class="sw" style="background:${sw}"></span>${label}`;b.onclick=()=>setTheme(key);bar.appendChild(b)});
 // theme vars live on #app via attribute selector; also mirror to body for background
 const styleFix=document.createElement('style');styleFix.textContent='body{transition:background .6s}';document.head.appendChild(styleFix);
